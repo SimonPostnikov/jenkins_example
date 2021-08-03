@@ -1,4 +1,4 @@
-package guru.qa;
+package quguru;
 
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
 
-public class PracticeFormTestsWithPageobjectsAndFaker {
+public class PracticeFormTestsWithPageobjectsAndFaker extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @BeforeAll

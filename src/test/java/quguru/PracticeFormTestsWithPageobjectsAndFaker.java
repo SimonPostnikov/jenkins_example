@@ -17,11 +17,16 @@ import static io.qameta.allure.Allure.step;
 
 public class PracticeFormTestsWithPageobjectsAndFaker extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
+    @BeforeAll
+    static void setup() {
+        //   baseUrl = "https://demoqa.com";
+        startMaximized = true;
+    }
 
     @Test
     void positiveFillTest() {
 
-        startMaximized = true;
+       // startMaximized = true;
         Faker faker = new Faker();
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();

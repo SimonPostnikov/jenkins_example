@@ -13,6 +13,7 @@ import static com.codeborne.selenide.Configuration.startMaximized;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
+import static io.qameta.allure.Allure.step;
 
 public class PracticeFormTestsWithPageobjectsAndFaker extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
@@ -43,7 +44,9 @@ public class PracticeFormTestsWithPageobjectsAndFaker extends TestBase {
         String city = "Noida";
 
 
-        registrationPage.openPage();
+        step("Open students registration form", () -> {
+        registrationPage.openPage();});
+        step("Fill students registration form", () -> {
         registrationPage.typeFirstName(firstName)
                 .typeLastName(lastName)
                 .typeEmail(email)
@@ -56,8 +59,8 @@ public class PracticeFormTestsWithPageobjectsAndFaker extends TestBase {
                 .typeAdress(adress)
                 .selectState(state)
                 .selectCity(city);
-        registrationPage.clickButton();
-
+        registrationPage.clickButton();});
+        step("Verify successful form submit", () -> {
         registrationPage.checkResultsTitle();
         registrationPage.checkResultsValue(firstName + " " + lastName)
                 .checkResultsValue(email)
@@ -68,7 +71,7 @@ public class PracticeFormTestsWithPageobjectsAndFaker extends TestBase {
                 .checkResultsValue(hobbies)
                 .checkResultsValue(picture)
                 .checkResultsValue(adress)
-                .checkResultsValue(state + " " + city);
+                .checkResultsValue(state + " " + city);});
     }
 
 }

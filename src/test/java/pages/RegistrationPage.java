@@ -20,7 +20,7 @@ public class RegistrationPage {
     private Calendar calendar = new Calendar();
 
     public void openPage(){
-        open("/automation-practice-form");
+        open("https://demoqa.com/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text(FORM_TITLE));
     }
 

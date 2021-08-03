@@ -20,7 +20,7 @@ public class PracticeFormTestsWithPageobjectsAndFaker extends TestBase {
 
     @BeforeAll
     static void setup() {
-        baseUrl = "https://demoqa.com";
+     //   baseUrl = "https://demoqa.com";
         startMaximized = true;
     }
 

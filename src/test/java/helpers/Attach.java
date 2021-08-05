@@ -14,28 +14,30 @@ import java.nio.charset.StandardCharsets;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class Attach {
+    //Позволяет "аттачить" в аллюр любое сообщение
     @Attachment(value = "{attachName}", type = "text/plain")
     public static String attachAsText(String attachName, String message) {
         return message;
     }
 
+    //Забираем у драйвера page source страницы
     @Attachment(value = "Page source", type = "text/plain")
     public static byte[] pageSource() {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
-
+    //Забираем скриншот
     @Attachment(value = "{attachName}", type = "image/png")
     public static byte[] screenshotAs(String attachName) {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
-
+    //Забираем браузер консоль
     public static void browserConsoleLogs() {
         attachAsText(
                 "Browser console logs",
                 String.join("\n", Selenide.getWebDriverLogs(LogType.BROWSER))
         );
     }
-
+    // Добавить видео
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static String addVideo() {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"

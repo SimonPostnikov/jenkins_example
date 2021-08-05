@@ -1,18 +1,9 @@
 package quguru;
 
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-
-import java.io.File;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Configuration.startMaximized;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 
 public class PracticeFormTestsWithPageobjectsAndFaker extends TestBase {

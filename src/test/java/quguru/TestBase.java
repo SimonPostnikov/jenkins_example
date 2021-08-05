@@ -14,13 +14,16 @@ public class TestBase {
     static void setup() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
+        //Набор ключей-значений, которые передаются драйверу
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
+        //Макс браузер
         Configuration.startMaximized = true;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+        //Запуск браузера в селеноиде
+        Configuration.remote = "https://user1:1234@" + System.getProperty("url");;
     }
 
     @AfterEach

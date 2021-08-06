@@ -31,7 +31,7 @@ public class TestBase {
         //Запуск браузера в селеноиде
         String login = credentials.login();
         String password =credentials.password();
-        Configuration.remote = format("https://%s:%s@",login,password) + System.getProperty("url");
+        Configuration.remote = format("https://%s:%s@" + System.getProperty("url"),login,password);
     };
 
     @AfterEach
